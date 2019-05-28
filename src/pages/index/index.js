@@ -1,17 +1,46 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { AtButton, AtList, AtListItem } from 'taro-ui'
 import './index.scss'
 export default class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
   }
 
+  state = {
+    products: []
+  }
+
+  async componentWillMount(){
+    const response = await Taro.request({
+      url: `${API_WS}/products`
+    })
+
+    this.setState({
+      products: response.data
+    })
+  }
+
   render () {
+    const { products } = this.state
+
     return (
       <View className='index'>
-         <AtButton type='primary'>按钮文案</AtButton>
+         <AtList>
+           {
+             products.map(product =>
+                <AtListItem
+                  key={ product.id }
+                  arrow='right'
+                  thumb={ product.images[0].src }
+                  title={ product.name }
+                  note={ '￥' + product.price }
+                />
+              )
+           }
+         </AtList>
       </View>
     )
   }
 }
+
