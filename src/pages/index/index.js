@@ -1,7 +1,7 @@
-import Taro, { Component, Config } from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtButton, AtList, AtListItem } from 'taro-ui'
-import './index.scss'
+import {  AtList, AtListItem } from 'taro-ui'
+
 export default class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
@@ -30,11 +30,11 @@ export default class Index extends Component {
            {
              products.map(product =>
                 <AtListItem
-                  key={ product.id }
+                  key={product.id}
                   arrow='right'
-                  thumb={ product.images[0].src }
-                  title={ product.name }
-                  note={ '￥' + product.price }
+                  thumb={product.images[0].src}
+                  title={product.name}
+                  note={'￥' + product.price}
                 />
               )
            }
