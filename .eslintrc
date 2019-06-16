@@ -12,6 +12,7 @@
         "varsIgnorePattern": "Taro"
       }
     ],
+    "react/jsx-curly-spacing": 0,
     "react/jsx-filename-extension": [
       1,
       {

@@ -1,7 +1,8 @@
-import Taro, { Component, Config } from '@tarojs/taro'
+import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtButton, AtList, AtListItem } from 'taro-ui'
+import { AtList, AtListItem } from 'taro-ui'
 import './index.scss'
+
 export default class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
